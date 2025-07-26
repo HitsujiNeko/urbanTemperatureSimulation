@@ -50,9 +50,7 @@
     $$\Gamma(t) = 0.44 - 0.46 \sin(\omega t + 0.9) + 0.11 \sin(2\omega t + 0.9)$$
 
   - 2式:
-    $$
-    T_a = T_x \Gamma(t) + T_n (1-\Gamma(t))
-    $$
+    $$T_a = T_x \Gamma(t) + T_n (1-\Gamma(t))$$
     - $T_x$：最高気温 [℃]
     - $T_n$：最低気温 [℃]
     - $\omega = 2\pi/24$ [1/h]
@@ -64,9 +62,7 @@
 ### 2. 大気安定度・非断熱補正係数
 **式:**
   - 大気安定度
-    $$
-    \zeta = -\frac{\kappa g H \cdot H}{\hat{\rho} c_p (T_a + 273.15) u_*^3}
-    $$
+    $$\zeta = -\frac{\kappa g H \cdot H}{\hat{\rho} c_p (T_a + 273.15) u_*^3}$$
     - $\kappa$：カルマン定数 [-]
     - $g$：重力加速度 [m/s^2]
     - $H$：高さ [m]
@@ -85,9 +81,7 @@
 
 ### 3. 摩擦速度
 **式:**
-  $$
-  u_* = \frac{\kappa U_{100}}{\ln((H-D)/z_M) + \psi_M}
-  $$
+  $$u_* = \frac{\kappa U_{100}}{\ln((H-D)/z_M) + \psi_M}$$
   - $U_{100}$：高さ100mでの風速 [m/s]
   - $D$：零面変位 [m]
   - $z_M$：運動量粗度 [m]
@@ -99,13 +93,9 @@
 ### 4. 都市境界層コンダクタンス・表層熱コンダクタンス
 **式:**
   - 都市境界層コンダクタンス:
-    $$
-    g_{Ha} = \frac{\kappa^2 \hat{\rho} U_{100}}{(\ln((H-D)/z_M)+\psi_M)(\ln((H-D)/z_H)+\psi_H)}
-    $$
+    $$g_{Ha} = \frac{\kappa^2 \hat{\rho} U_{100}}{(\ln((H-D)/z_M)+\psi_M)(\ln((H-D)/z_H)+\psi_H)}$$
   - 表層熱コンダクタンス:
-    $$
-    g_{Has} = \frac{a_s}{c_p}
-    $$
+    $$g_{Has} = \frac{a_s}{c_p}$$
     - $a_s$：表層対流熱伝達率 [W/(m^2 K)]
 **解説:**
 都市境界層および地表面の熱輸送効率を示すコンダクタンス（伝達率）を計算します。単位は[mol/(m^2 s)]です。
@@ -113,9 +103,7 @@
 
 ### 5. 地表面温度（熱収支式）
 **式:**
-  $$
-  T_s^{\mathrm{new}} = T_s^{\mathrm{prev}} + \frac{\Delta t \cdot 3600}{C_1} \left[ a_s (T_a - T_s^{\mathrm{prev}}) - \lambda (T_s^{\mathrm{prev}} - T_{\mathrm{underground}}) + R_n - lE + Q_H \right]
-  $$
+  $$T_s^{\mathrm{new}} = T_s^{\mathrm{prev}} + \frac{\Delta t \cdot 3600}{C_1} \left[ a_s (T_a - T_s^{\mathrm{prev}}) - \lambda (T_s^{\mathrm{prev}} - T_{\mathrm{underground}}) + R_n - lE + Q_H \right]$$
     - $T_s$：地表面温度 [℃]
     - $\Delta t$：時間刻み [h]
     - $C_1$：地表の熱容量 [J/(m^2 K)]
@@ -132,9 +120,7 @@
 
 ### 6. 地中温度（差分法）
 **式:**
-  $$
-  T_i^{\mathrm{new}} = T_i + \alpha (T_{i-1} + T_{i+1} - 2T_i)
-  $$
+  $$T_i^{\mathrm{new}} = T_i + \alpha (T_{i-1} + T_{i+1} - 2T_i)$$
     - $T_i$：地下i層目の温度 [℃]
     - $\alpha = \frac{\lambda \cdot 3600 \cdot \Delta t}{C_\Gamma \Delta x^2}$：熱拡散率 [無次元]
     - $C_\Gamma$：地盤比熱 [J/(m^3 K)]
@@ -145,9 +131,7 @@
 
 ### 7. 飽和水蒸気圧（Tetensの式）
 **式:**
-  $$
-  e_s = 6.11 \times 10^{7.5 T / (T + 237.3)}
-  $$
+  $$e_s = 6.11 \times 10^{7.5 T / (T + 237.3)}$$
     - $T$：温度 [℃]
 **解説:**
 地表面温度から飽和水蒸気圧を求めます。単位は[hPa]です。
@@ -155,9 +139,7 @@
 
 ### 8. 潜熱フラックス
 **式:**
-  $$
-  lE = L_v \cdot \beta \cdot \alpha_w (e_s \times 100 - E_a)
-  $$
+  $$lE = L_v \cdot \beta \cdot \alpha_w (e_s \times 100 - E_a)$$
     - $L_v$：蒸発潜熱 [J/kg]
     - $\beta$：蒸発効率 [-]
     - $\alpha_w$：湿気伝達率 [kg/(m^2\,\mathrm{s}\,\mathrm{Pa})]
@@ -169,9 +151,7 @@
 
 ### 9. 顕熱フラックス
 **式:**
-  $$
-  H = \frac{T_s - T_a}{R_s + R_u}
-  $$
+  $$H = \frac{T_s - T_a}{R_s + R_u}$$
     - $R_s = 1/a_s$：表面熱伝達抵抗 [K\,m^2/W]
     - $R_u = 1/a_u$：都市境界層熱抵抗 [K\,m^2/W]
 **解説:**
@@ -183,9 +163,7 @@
 
 ### 10. 都市気温
 **式:**
-  $$
-  T_u = \frac{a_s T_s + a_u T_a}{a_s + a_u}
-  $$
+  $$T_u = \frac{a_s T_s + a_u T_a}{a_s + a_u}$$
     - $a_s = g_{Has} c_p$：表層熱伝達率 [W/(m^2 K)]
     - $a_u = g_{Ha} c_p$：都市境界層熱伝達率 [W/(m^2 K)]
 **解説:**
