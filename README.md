@@ -65,11 +65,11 @@
 **式:**
   - 大気安定度
 
-$$\zeta = -\frac{\kappa g H \cdot H}{\hat{\rho} c_p (T_a + 273.15) u_*^3}$$
+$$\zeta = -\frac{\kappa g z H}{\hat{\rho} c_p (T_a + 273.15) u_*^3}$$
 
  - $\kappa$：カルマン定数 [-]
  - $g$：重力加速度 [m/s^2]
- - $H$：高さ [m]
+ - $z$：高さ [m]
  - $H$：顕熱フラックス [W/m^2]
  - $\hat{\rho}$：大気の密度 [mol/m^3]
  - $c_p$：空気の比熱 [J/(mol\cdot K)]
@@ -88,10 +88,10 @@ $$\zeta = -\frac{\kappa g H \cdot H}{\hat{\rho} c_p (T_a + 273.15) u_*^3}$$
 ### 3. 摩擦速度
 **式:**
 
-$$u_* = \frac{\kappa U_{100}}{\ln((H-D)/z_M) + \psi_M}$$
+$$u_* = \frac{\kappa u(z)}{\ln((z-d)/z_M) + \psi_M}$$
 
-  - $U_{100}$：高さ100mでの風速 [m/s]
-  - $D$：零面変位 [m]
+  - $u(z)$：高さ z mでの風速 [m/s]
+  - $d$：零面変位 [m]
   - $z_M$：運動量粗度 [m]
   - $\psi_M$：非断熱補正係数
     
@@ -103,7 +103,7 @@ $$u_* = \frac{\kappa U_{100}}{\ln((H-D)/z_M) + \psi_M}$$
 **式:**
   - 都市境界層コンダクタンス:
     
-$$g_{Ha} = \frac{\kappa^2 \hat{\rho} U_{100}}{(\ln((H-D)/z_M)+\psi_M)(\ln((H-D)/z_H)+\psi_H)}$$
+$$g_{Ha} = \frac{\kappa^2 \hat{\rho} u(z)}{(\ln((z-d)/z_M)+\psi_M)(\ln((z-D)/z_H)+\psi_H)}$$
 
   - 表層熱コンダクタンス:
     
