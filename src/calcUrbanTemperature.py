@@ -65,6 +65,8 @@ SEASON = "冬"  # "夏" or "冬"
 BETA = 0 # 蒸発効率　（0~1の範囲で指定）
 Q_H = 0  # 人工排熱量 (W/m2)
 U_100 = 5  # z=100 m における風速 (m/s)
+SOLAR_ABSORPTION = 0.8  # 日射吸収率
+
 INPUT_DATA_PATH = SUMMER_DATA_PATH if SEASON == "夏" else WINTER_DATA_PATH
 
 #物理定数
@@ -77,7 +79,7 @@ Z_M =  0.1 # 運動量に関する粗度 (m)
 Z_H = 0.2 * Z_M  # 顕熱に関する粗度 (m)
 D = 0  # 零面変位 (m)
 EPSILON = 0.9  # 長波放射率
-SOLAR_ABSORPTION = 0.8  # 日射吸収率
+
 G_HAS = 0.614  # 表層熱コンダクタンス (mol/(m2s))
 #潜熱フラックス条件
 LATENT_HEAT = 2.5e6  # 蒸発潜熱 (J/kg) 
